@@ -1,0 +1,43 @@
+.northeast {
+  background: #fff;
+  width: 0;
+  height: 0;
+  border-top: 100px solid #282c34;
+  border-left: 100px solid transparent;
+}
+
+.southeast {
+  background: #fff;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid #282c34;
+  border-left: 100px solid transparent;
+}
+
+.southwest {
+  background: #fff;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid #282c34;
+  border-right: 100px solid transparent;
+}
+
+.northwest {
+  background: #fff;
+  width: 0;
+  height: 0;
+  border-top: 100px solid #282c34;
+  border-right: 100px solid transparent;
+}
+
+.empty {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+}
+
+.full {
+  width: 100px;
+  height: 100px;
+  background: #282c34;
+}
