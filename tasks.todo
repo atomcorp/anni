@@ -1,0 +1,15 @@
+# Aims
+Dynamically generated designs in the style of Anni Albers TR prints 
+
+Thoughts/assumptions:
+  ☐ image is made up of a small range of shapes
+  ☐ shapes are either random, or depend on neighbouring shapes
+  ☐ pattern is not totally random, there are rules
+  ☐ there are different types of these images produced by Anni, could have a setting for generating different versions
+  ☐ simple procedural generation
+
+
+
+
+Links
+https://albersfoundation.org/templates/assets/images/art-anni/06_Drawings/med/drawing_01.jpg

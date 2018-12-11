@@ -1,0 +1,7 @@
+1: 
+  Install Create-React-App, quickest and easiest
+  Aim to make a component that will display the differnet shapes [Tile]
+    different numbers props will make different shapes
+  Aim to make a table that will generate 𝑥 amount of Tiles [Board]
+    probably need X/Y lengths
+    
