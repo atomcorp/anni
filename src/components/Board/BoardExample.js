@@ -3,7 +3,7 @@ import Board from './Board';
 
 const BoardExample = (props) => (
   <div>
-    <Board wide={16} tall={16} size="60px" />
+    <Board wide={16} tall={16} size="60px" tileType="arrows" />
   </div>
 );
 
