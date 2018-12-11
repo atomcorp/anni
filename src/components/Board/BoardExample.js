@@ -3,7 +3,7 @@ import Board from './Board';
 
 const BoardExample = (props) => (
   <div>
-    <Board wide={6} tall={2} />
+    <Board wide={16} tall={16} size="60px" />
   </div>
 );
 
