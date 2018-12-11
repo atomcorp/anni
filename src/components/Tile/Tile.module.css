@@ -1,43 +1,27 @@
+.tile {
+  background: #282c34;
+  width: 100%;
+  height: 100%;
+}
+
 .northeast {
-  background: #fff;
-  width: 0;
-  height: 0;
-  border-top: 100px solid #282c34;
-  border-left: 100px solid transparent;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 
 .southeast {
-  background: #fff;
-  width: 0;
-  height: 0;
-  border-bottom: 100px solid #282c34;
-  border-left: 100px solid transparent;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
 }
 
 .southwest {
-  background: #fff;
-  width: 0;
-  height: 0;
-  border-bottom: 100px solid #282c34;
-  border-right: 100px solid transparent;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
 }
 
 .northwest {
-  background: #fff;
-  width: 0;
-  height: 0;
-  border-top: 100px solid #282c34;
-  border-right: 100px solid transparent;
+  clip-path: polygon(0 100%, 100% 0, 0 0);
 }
 
 .empty {
-  width: 100px;
-  height: 100px;
-  background: #fff;
+  background: transparent;
 }
 
-.full {
-  width: 100px;
-  height: 100px;
-  background: #282c34;
-}
+.full {}

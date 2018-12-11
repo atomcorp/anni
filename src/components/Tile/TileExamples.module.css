@@ -1,9 +1,12 @@
 .row {
   display: flex;
+  height: 100px;
+  width: 600px;
 }
 
 .grid {
   width: 800px;
+  height: 200px;
   display: grid;
   grid-template-columns: repeat(8, 100px);
   grid-template-rows: auto;
