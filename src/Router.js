@@ -1,18 +1,16 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 import Home from './components/Home/Home';
 import TileExamples from './components/Tile/TileExamples';
-import BoardExample from './components/Board/BoardExample';
+import BoardExample from './components/Examples/BoardExample';
 
 const Router = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/tileexamples" component={TileExamples} />
-      <Route path="/board" component={BoardExample} />
-      <Route component={Home} />
-    </Switch>
-  </BrowserRouter>
+  <Switch>
+    <Route path="/tileexamples" component={TileExamples} />
+    <Route path="/board" component={BoardExample} />
+    <Route component={Home} />
+  </Switch>
 );
 
 export default Router;

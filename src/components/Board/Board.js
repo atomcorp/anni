@@ -20,18 +20,28 @@ const tilesSwitch = (type) => {
   }
 };
 
+const return2dArray = (x, y) => {
+  return Array.from(Array(y)).fill(Array.from(Array(x)).fill(0));
+};
+
 let root = document.documentElement;
 const Board = (props) => {
   root.style.setProperty('--wide', props.wide);
   root.style.setProperty('--tall', props.tall);
   root.style.setProperty('--size', props.size);
+  const base = return2dArray(props.wide, props.tall);
   return (
     <div className={css.container}>
-      {Array.from(Array(props.wide * props.tall))
-        .fill(null)
-        .map((_, index) => (
-          <Tile index={tilesSwitch(props.tileType)} key={index} />
-        ))}
+      {base
+        .map((row, rowIndex) =>
+          row.map((tile, tileIndex) => (
+            <Tile
+              index={tilesSwitch(props.tileType)}
+              key={String.fromCharCode(97 + rowIndex) + tileIndex}
+            />
+          ))
+        )
+        .flat()}
     </div>
   );
 };
