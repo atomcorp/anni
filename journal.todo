@@ -1,8 +1,22 @@
 1: 
-  Install Create-React-App, quickest and easiest
-  Aim to make a component that will display the differnet shapes [Tile]
+  - Install Create-React-App, quickest and easiest
+  - Aim to make a component that will display the differnet shapes [Tile]
     different numbers props will make different shapes
-  Aim to make a table that will generate 𝑥 amount of Tiles [Board]
+    - Aim to make a table that will generate 𝑥 amount of Tiles [Board]
     probably need X/Y lengths
-  Had to think of making tile responsive earlier than I wanted
-    
+  -- note- 
+  - Had to make tiles responsive earlier than I wanted, switched from hacky css to clip-path: polygon
+  - css variables are great, however can only have one board at a time
+  - this one is totally random
+  - result is similar to Ecla https://www.loomefabrics.co.uk/shop/product/red-mid-century-50s-60s-70s-flat-weave-curtain-upholstery-fabric/eclat-weave-scarlet.html
+  - that only has arrow types though, and mine originally included blanks and fills too, so I added prop to choose which tile shapes to include (see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive)
+
+2:
+  - do https://www.moma.org/collection/works/68501
+  - This one is only vertical arrows, and these are made up of pairs of tiles, eg. southeast+southwest or northeast+northwest and blank tiles
+  - when generating a tile, it will need to know which tile came before it
+  - should probably add some colour variety into it too
+
+3: 
+  - stage 3 is where it looks a bit more mountain rangey, there are triangle blocks cut off from ther rest of the sections
+  - i guess there will be an random number of these, they'll be created seperately and then merged into the main thing, for every tile theres an increasing random chance it will generate a special feature
