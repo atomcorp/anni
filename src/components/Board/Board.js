@@ -2,17 +2,21 @@ import React from 'react';
 import css from './Board.module.css';
 import Tile from '../Tile/Tile';
 
-const allTiles = () => parseInt(Math.random() * 5, 10);
-const arrowTiles = () => parseInt(Math.random() * 4, 10) + 1;
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 const tilesSwitch = (type) => {
   switch (type) {
-    case 'all':
-      return allTiles();
     case 'arrows':
-      return arrowTiles();
+      return getRandomInt(1, 4);
+    case 'noFills':
+      return getRandomInt(0, 4);
+    case 'noEmpties':
+      return getRandomInt(1, 5);
+    case 'all':
     default:
-      return allTiles;
+      return getRandomInt(0, 5);
   }
 };
 
