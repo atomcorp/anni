@@ -4,8 +4,8 @@ import Board from '../Board/Board';
 const VerticalBoardExample = (props) => (
   <div>
     <Board
-      wide={6}
-      tall={2}
+      wide={8}
+      tall={4}
       size="100px"
       tileType="noFills"
       algorithm="vertical"

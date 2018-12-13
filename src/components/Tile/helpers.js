@@ -12,5 +12,7 @@ export const shapeSwitch = (index) => {
       return 'northwest';
     case 5:
       return 'full';
+    default:
+      return 'empty';
   }
 };
