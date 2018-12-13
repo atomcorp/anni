@@ -11,6 +11,7 @@
   - result is similar to Ecla https://www.loomefabrics.co.uk/shop/product/red-mid-century-50s-60s-70s-flat-weave-curtain-upholstery-fabric/eclat-weave-scarlet.html
   - that only has arrow types though, and mine originally included blanks and fills too, so I added prop to choose which tile shapes to include (see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Getting_a_random_integer_between_two_values_inclusive)
   - converted Board to use a 2d array, easier to check adjacent tiles
+  - copying code dangers, randomIntBetween function was min meant equal or more, max meant less only 
 
 2:
   - do https://www.moma.org/collection/works/68501
@@ -18,6 +19,9 @@
   - This one is only vertical arrows, and these are made up of pairs of tiles, eg. southeast+southwest or northeast+northwest and blank tiles
   - when generating a tile, it will need to know which tile came before it
   - should probably add some colour variety into it too
+  -- note
+  - array.flatMap() doesn't work with JSX?!
+  - realised I need the algorithm function to be able to mutate the existing board of tiles, because if you change a tile, the next tile needs to know
 
 3: 
   - stage 3 is where it looks a bit more mountain rangey, there are triangle blocks cut off from ther rest of the sections

@@ -14,6 +14,9 @@ const Nav = () => (
       <li>
         <Link to="/tileexamples">Tile examples</Link>
       </li>
+      <li>
+        <Link to="/vertboardexample">Vertical board example</Link>
+      </li>
     </ul>
   </section>
 );

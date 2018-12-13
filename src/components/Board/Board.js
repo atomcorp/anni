@@ -18,17 +18,17 @@ function getRandomInt(min, max) {
  * @param {string} type
  * @return {number} integer
  */
-const tilesSwitch = (type) => {
-  switch (type) {
+const tilesSwitch = (tileType) => {
+  switch (tileType) {
     case 'arrows':
-      return getRandomInt(1, 5);
+      return () => getRandomInt(0, 5);
     case 'noFills':
-      return getRandomInt(0, 5);
+      return () => getRandomInt(0, 5);
     case 'noEmpties':
-      return getRandomInt(1, 6);
+      return () => getRandomInt(1, 6);
     case 'all':
     default:
-      return getRandomInt(0, 6);
+      return () => getRandomInt(0, 6);
   }
 };
 
@@ -37,9 +37,49 @@ const tilesSwitch = (type) => {
  * @param {number} x
  * @param {number} y
  */
-const return2dArray = (x, y) => {
-  return Array.from(Array(y)).fill(Array.from(Array(x)).fill(0));
+const return2dArray = (x, y, intGenerator) =>
+  Array(y)
+    .fill(null)
+    .map(() =>
+      Array(x)
+        .fill(null)
+        .map(() => intGenerator())
+    );
+
+const handleVerticalAlgorithm = (
+  {prevTile = 0, nextTile},
+  recusive = false
+) => {
+  console.log(prevTile, nextTile, recusive);
+  if (prevTile === 1) {
+    return 4;
+  }
+  if (prevTile === 2) {
+    return 3;
+  }
+  if (
+    (nextTile === 4 && prevTile !== 1) ||
+    (nextTile === 3 && prevTile !== 2)
+  ) {
+    handleVerticalAlgorithm({prevTile, nextTile: getRandomInt(0, 5)}, true);
+  }
+  return nextTile;
 };
+
+const switchTileAlgorithm = (algorithmType) => ({prevTile, nextTile}) => {
+  switch (algorithmType) {
+    case 'vertical':
+      return handleVerticalAlgorithm({prevTile, nextTile});
+    default:
+      return nextTile;
+  }
+};
+
+/**
+ * need to make a function which loops through each tile
+ * and can alter the whole board as it goes
+ *
+ */
 
 let root = document.documentElement;
 
@@ -47,19 +87,20 @@ const Board = (props) => {
   root.style.setProperty('--wide', props.wide);
   root.style.setProperty('--tall', props.tall);
   root.style.setProperty('--size', props.size);
-  const base = return2dArray(props.wide, props.tall);
+  const tileType = tilesSwitch(props.tileType);
+  const base = return2dArray(props.wide, props.tall, tileType);
+  const algorithm = switchTileAlgorithm(props.algorithm);
+  // algorithm should be done here
+  console.log(base.flat());
   return (
     <div className={css.container}>
-      {base
-        .map((row, rowIndex) =>
-          row.map((tile, tileIndex) => (
-            <Tile
-              index={tilesSwitch(props.tileType)}
-              key={String.fromCharCode(97 + rowIndex) + tileIndex}
-            />
-          ))
-        )
-        .flat()}
+      {base.flat().map((tile, index, baseArr) => (
+        // there shouldn't be any logic or algorithming here
+        <Tile
+          index={algorithm({nextTile: tile, prevTile: baseArr[index - 1]})}
+          key={index}
+        />
+      ))}
     </div>
   );
 };
