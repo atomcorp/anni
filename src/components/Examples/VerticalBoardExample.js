@@ -6,7 +6,7 @@ const VerticalBoardExample = (props) => (
     <Board
       wide={8}
       tall={4}
-      size="100px"
+      size="80px"
       tileType="noFills"
       algorithm="vertical"
     />
