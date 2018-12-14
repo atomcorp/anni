@@ -2,6 +2,7 @@
   --wide: 1;
   --tall: 1;
   --size: 10px;
+  --background: #439759;
 }
 
 .container {
@@ -10,4 +11,5 @@
   height: calc(var(--height) * var(--size));
   grid-template-columns: repeat(var(--wide), var(--size));
   grid-template-rows: repeat(var(--tall), var(--size));
+  background: var(--background);
 }
