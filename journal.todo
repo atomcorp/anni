@@ -25,7 +25,7 @@
   - realised I need the algorithm function to be able to mutate the existing board of tiles, because if you change a tile, the next tile needs to know
   - needed a recursive function as needed the ability to go back and mutate the board
   - Too many blanks, need a way to control the distribution, eg max 1 per 8 rows 
-  - 
+  - Had to check the tile directly above, if wrong had to loop back up and repeat - inefficent
 
 3: 
   - stage 3 is where it looks a bit more mountain rangey, there are triangle blocks cut off from ther rest of the sections
