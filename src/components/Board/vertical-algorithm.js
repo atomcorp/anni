@@ -15,7 +15,6 @@ const algorithm = (matrix) => {
   let latestMatrix = matrix;
   const totalRows = matrix.length - 1;
   const totalCols = matrix[0].length - 1;
-  let started = false;
   const recursiveSearch = (currentRow, currentCol) => {
     const tile = latestMatrix[currentRow][currentCol];
     if (
@@ -27,27 +26,30 @@ const algorithm = (matrix) => {
       return recursiveSearch(currentRow, currentCol);
     }
     // check for diamonds
-    if (tile === 4 && currentRow !== 0) {
-      if (latestMatrix[currentRow - 1][currentCol] === 3) {
+    if ((tile === 1 || tile === 4) && currentRow !== 0) {
+      const aboveTile = latestMatrix[currentRow - 1][currentCol];
+      if (aboveTile === 3 || aboveTile === 2) {
+        const columnToAlter = aboveTile === 3 ? currentCol - 1 : currentCol;
+        latestMatrix[currentRow - 1][columnToAlter] = getRandomInt(0, 5);
+        return recursiveSearch(currentRow - 1, columnToAlter);
         // we flip a coin to randomly change either the upp row
         // of the current row
-        if (Math.round(Math.random()) === 0) {
-          latestMatrix[currentRow - 1][currentCol - 1] = getRandomInt(0, 5);
-          return recursiveSearch(currentRow - 1, currentCol - 1);
-        } else {
-          latestMatrix[currentRow][currentCol - 1] = getRandomInt(0, 5);
-          return recursiveSearch(currentRow, currentCol - 1);
-        }
+        // if (Math.round(Math.random()) === 0) {
+        //   latestMatrix[currentRow - 1][columnToAlter] = getRandomInt(0, 5);
+        //   return recursiveSearch(currentRow - 1, columnToAlter);
+        // } else {
+        //   latestMatrix[currentRow][columnToAlter] = getRandomInt(0, 5);
+        //   return recursiveSearch(currentRow, columnToAlter);
+        // }
       }
     }
     // if nothing else check the next column
     if (currentCol < totalCols) {
+      // if 1 or 2, assign next tile
       if (tile === 1) {
-        // assign next tile and skip checking it
         latestMatrix[currentRow][currentCol + 1] = 4;
       }
       if (tile === 2) {
-        // assign next tile and skip checking it
         latestMatrix[currentRow][currentCol + 1] = 3;
       }
       return recursiveSearch(currentRow, currentCol + 1);

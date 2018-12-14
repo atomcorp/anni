@@ -17,11 +17,15 @@
   - do https://www.moma.org/collection/works/68501
   - use a 2d array of arrays to represent  
   - This one is only vertical arrows, and these are made up of pairs of tiles, eg. southeast+southwest or northeast+northwest and blank tiles
+  - No diamonds, shifted diamonds
   - when generating a tile, it will need to know which tile came before it
   - should probably add some colour variety into it too
   -- note
   - array.flatMap() doesn't work with JSX?!
   - realised I need the algorithm function to be able to mutate the existing board of tiles, because if you change a tile, the next tile needs to know
+  - needed a recursive function as needed the ability to go back and mutate the board
+  - Too many blanks, need a way to control the distribution, eg max 1 per 8 rows 
+  - 
 
 3: 
   - stage 3 is where it looks a bit more mountain rangey, there are triangle blocks cut off from ther rest of the sections
